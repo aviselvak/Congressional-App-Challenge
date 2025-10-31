@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  .popover {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    width: 280px;
+    padding: 1rem;
+    z-index: 1000;
+    animation: fadeIn 0.15s ease-out;
+  }
+
+  .popover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .popover-header .label {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .popover-header .close {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: #6b7280;
+  }
+
+  .popover p {
+    margin: 0.5rem 0;
+    color: #374151;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .sources {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+
+  .sources a {
+    display: block;
+    color: #2563eb;
+    text-decoration: none;
+    margin-top: 0.25rem;
+  }
+
+  .sources a:hover {
+    text-decoration: underline;
+  }
+
+  /* Label colors */
+  .label-True { color: #16a34a; }
+  .label-False { color: #dc2626; }
+  .label-Mixed { color: #ca8a04; }
+  .label-Unsure { color: #6b7280; }
+
+  /* Emotionally charged content warning */
+  .emotion-warning {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    background: #fff7ed; /* very light yellow */
+    color: #92400e; /* warm brown/orange */
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+    font-size: 0.9rem;
+    border: 1px solid #f6ad55;
+    visibility: hidden;
+    position: absolute;
+  }
+  .emotion-warning .icon {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .sources a {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .popover span {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+
+<!-- POPUP UI -->
+<div id="popover" class="popover">
+  <div class="popover-header">
+    <span class="label label-True" id = "classification-label-truthFinder">True <div></div></span>
+    
+    <button class="close" onclick="document.getElementById('popover').style.display='none'">✕</button>
+  </div>
+  <div class="emotion-warning" role="note" aria-label="Content may be emotionally charged">
+    <span>Text may be emotionally charged.</span>
+  </div>
+  <p id = "rationale-truthFinder">This statement aligns with verified sources and factual information.</p>
+  <div class="sources">
+    <span>Sources:</span>
+    <a href="https://en.wikipedia.org" target="_blank" id="citation-1"><i class="fa-solid fa-arrow-up-right-from-square"></i> Wikipedia</a>
+    <a href="https://www.reuters.com/fact-check/" target="_blank" id="citation-2"><i class="fa-solid fa-arrow-up-right-from-square"></i> Reuters Fact Check</a>
+  </div>
+</div>
+
+</body>
+</html>

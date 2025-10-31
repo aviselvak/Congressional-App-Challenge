@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Text Classifier Popover",
+  "version": "1.0",
+  "description": "Displays a popover below highlighted text.",
+  "permissions": ["activeTab", "scripting"],
+  "web_accessible_resources": [
+    {
+      "resources": ["popover.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
